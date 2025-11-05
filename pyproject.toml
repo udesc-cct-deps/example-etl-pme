@@ -11,4 +11,6 @@ dependencies = [
     "openpyxl",
     "ipykernel",
     "sqlalchemy",
+    "ollama>=0.6.0",
+    "scikit-ollama>=0.3.2",
 ]
