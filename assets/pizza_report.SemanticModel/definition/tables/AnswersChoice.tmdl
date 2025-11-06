@@ -1,0 +1,33 @@
+table AnswersChoice
+	lineageTag: a5d16876-a86a-48f0-a885-7be19c18661a
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ce20f56-0f8d-4b68-b744-511c3477ebd6
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Which of the following pizza toppings do you usually choose?'
+		dataType: string
+		lineageTag: 5ed78e87-2cf3-47a6-8fc9-2cb30ff5b54a
+		summarizeBy: none
+		sourceColumn: Which of the following pizza toppings do you usually choose?
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AnswersChoice = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "AnswersChoice", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"ID", Int64.Type}, {"Which of the following pizza toppings do you usually choose?", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

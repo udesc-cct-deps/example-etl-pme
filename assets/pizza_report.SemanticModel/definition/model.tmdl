@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Answers","AnswersChoice","Choices","AnswersRanking","Rankings","AnswersMatrix","Matrix","Categories","MatrixStatements","MatrixAnswers"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation __LastRPTime = 134068859262410670
+
+annotation PBI_ProTooling = ["WebModelingEdit","DevMode"]
+
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+ref table Answers
+ref table AnswersChoice
+ref table Choices
+ref table AnswersRanking
+ref table Rankings
+ref table AnswersMatrix
+ref table Matrix
+ref table Categories
+ref table AnswersDate
+ref table MatrixStatements
+ref table MatrixAnswers
+
+ref cultureInfo en-US
+

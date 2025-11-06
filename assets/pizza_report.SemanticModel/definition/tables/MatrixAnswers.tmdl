@@ -1,0 +1,24 @@
+table MatrixAnswers
+	lineageTag: 8ad7ae02-704b-4b71-ae57-3dda94fb1230
+
+	column Answer
+		dataType: string
+		lineageTag: 71bdfd83-8a07-4f43-b069-39cef818d839
+		summarizeBy: none
+		sourceColumn: Answer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MatrixAnswers = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "MatrixAnswers", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Answer", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

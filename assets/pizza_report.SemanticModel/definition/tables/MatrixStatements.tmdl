@@ -1,0 +1,24 @@
+table MatrixStatements
+	lineageTag: 548f473c-795d-4670-89b9-d3d9b84d23b9
+
+	column Statement
+		dataType: string
+		lineageTag: e00a13bb-eb18-495d-9e53-85fc316116fb
+		summarizeBy: none
+		sourceColumn: Statement
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MatrixStatements = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "MatrixStatements", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Statement", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

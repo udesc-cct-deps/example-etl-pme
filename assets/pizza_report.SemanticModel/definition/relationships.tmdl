@@ -1,0 +1,44 @@
+relationship 7a55044f-80f6-3121-b380-31a9e5e3f8c0
+	fromColumn: AnswersChoice.ID
+	toColumn: Answers.ID
+
+relationship ceea9baf-4454-6430-61d1-2b94841d2c93
+	fromColumn: AnswersMatrix.ID
+	toColumn: Answers.ID
+
+relationship b9d72580-ed18-ae83-f36a-2d15d801b7b5
+	fromColumn: AnswersRanking.ID
+	toColumn: Answers.ID
+
+relationship 20ddd5db-e315-251e-e2dc-17c0008fee94
+	fromColumn: AnswersChoice.'Which of the following pizza toppings do you usually choose?'
+	toColumn: Choices.'Which of the following pizza toppings do you usually choose?'
+
+relationship ae553ca7-0d81-ce0c-da8a-62de011078b9
+	fromColumn: AnswersRanking.'Please rank the following aspects of our service from most important to least important. (Option)'
+	toColumn: Rankings.'Please rank the following aspects of our service from most important to least important. (Option)'
+
+relationship dc92023e-f4e5-a8c9-8262-f6dc084559ea
+	fromColumn: Answers.'When was the last time you ordered from our pizzeria?'
+	toColumn: AnswersDate.Date
+
+relationship 6efe940f-80af-8780-8e65-81d216759f44
+	fromColumn: AnswersMatrix.Answer
+	toColumn: MatrixAnswers.Answer
+
+relationship a2afb1e1-48cb-3691-d7a4-2b145f7d2272
+	fromColumn: AnswersMatrix.Statement
+	toColumn: MatrixStatements.Statement
+
+relationship a724ec9f-06e2-6764-578c-99334e81a826
+	fromColumn: Matrix.Answer
+	toColumn: MatrixAnswers.Answer
+
+relationship 5294ccc6-90e6-e2eb-38eb-00bdb690e558
+	fromColumn: Matrix.Statement
+	toColumn: MatrixStatements.Statement
+
+relationship f54e51df-87bc-936b-e36c-85706e85c960
+	fromColumn: Matrix.Category
+	toColumn: Categories.Category
+

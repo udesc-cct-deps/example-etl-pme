@@ -1,0 +1,95 @@
+table Answers
+	lineageTag: b220a080-9bcb-4fee-aa15-7ec0ad89d0cd
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: d8b4617e-ce9a-44d5-a62f-27614ac94cd9
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How often do you order pizza from our pizzeria?'
+		dataType: string
+		lineageTag: 794042c2-3fb6-41f8-ad1a-67f85b71dbfa
+		summarizeBy: none
+		sourceColumn: How often do you order pizza from our pizzeria?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'What did you like the most or the least about your last pizza order?'
+		dataType: string
+		lineageTag: ae41ae47-de50-4fc2-b211-c7ea0bfdfe42
+		summarizeBy: none
+		sourceColumn: What did you like the most or the least about your last pizza order?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please describe your most recent experience ordering from our pizzeria.'
+		dataType: string
+		lineageTag: 3bd36383-f0de-463b-8ebf-ddcc929481cf
+		summarizeBy: none
+		sourceColumn: Please describe your most recent experience ordering from our pizzeria.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How would you rate the quality of our pizza?'
+		dataType: int64
+		formatString: 0
+		lineageTag: 796d4c57-cc9f-413b-aa8e-f6c50deb7c10
+		summarizeBy: sum
+		sourceColumn: How would you rate the quality of our pizza?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'When was the last time you ordered from our pizzeria?'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 04d84760-3d0b-4716-bac6-708ff7875651
+		summarizeBy: none
+		sourceColumn: When was the last time you ordered from our pizzeria?
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'How likely are you to recommend our pizzeria to a friend or colleague?'
+		dataType: int64
+		formatString: 0
+		lineageTag: 34ff7d7a-f8ac-4434-9560-852ebe24d8b5
+		summarizeBy: sum
+		sourceColumn: How likely are you to recommend our pizzeria to a friend or colleague?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'What did you like the most or the least about your last pizza order? (Sentiment)'
+		dataType: string
+		lineageTag: d6c9972c-14b2-4966-96af-26d7ea418cfe
+		summarizeBy: none
+		sourceColumn: What did you like the most or the least about your last pizza order? (Sentiment)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please describe your most recent experience ordering from our pizzeria. (Category)'
+		dataType: string
+		lineageTag: dff9fd86-8b64-4e87-9101-d1c8a7bf807a
+		summarizeBy: none
+		sourceColumn: Please describe your most recent experience ordering from our pizzeria. (Category)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Answers = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Answers", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Removed other columns" = Table.SelectColumns(#"Promoted headers", {"ID", "How often do you order pizza from our pizzeria?", "What did you like the most or the least about your last pizza order?", "Please describe your most recent experience ordering from our pizzeria.", "How would you rate the quality of our pizza?", "When was the last time you ordered from our pizzeria?", "How likely are you to recommend our pizzeria to a friend or colleague?", "What did you like the most or the least about your last pizza order? (Sentiment)", "Please describe your most recent experience ordering from our pizzeria. (Category)"}),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Removed other columns", {{"ID", Int64.Type}, {"How often do you order pizza from our pizzeria?", type text}, {"What did you like the most or the least about your last pizza order?", type text}, {"Please describe your most recent experience ordering from our pizzeria.", type text}, {"How would you rate the quality of our pizza?", Int64.Type}, {"When was the last time you ordered from our pizzeria?", type date}, {"How likely are you to recommend our pizzeria to a friend or colleague?", Int64.Type}, {"What did you like the most or the least about your last pizza order? (Sentiment)", type text}, {"Please describe your most recent experience ordering from our pizzeria. (Category)", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

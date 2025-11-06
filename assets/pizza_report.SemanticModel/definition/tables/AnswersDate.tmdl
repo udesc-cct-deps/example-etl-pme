@@ -1,0 +1,73 @@
+table AnswersDate
+	lineageTag: 60f1723f-3e76-4a42-85f9-0edfb7a6971e
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 8d893fd4-a4b9-4b4d-badc-d72a824eb71b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: c5fddcab-6a1c-469c-8be5-54e062de4196
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthInt
+		formatString: 0
+		lineageTag: 92eb9e3f-75b3-46bd-881e-d60b2b856691
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthInt]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStr
+		lineageTag: fabd8f8e-0d05-4cd0-a6b5-812cacec8f92
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthStr]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekInt
+		formatString: 0
+		lineageTag: 641209e0-cdaf-456e-a36e-b89419393390
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [WeekInt]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		formatString: 0
+		lineageTag: 8efbafcf-50bc-4806-a550-deb5c34679e0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AnswersDate = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(MIN('Answers'[When was the last time you ordered from our pizzeria?]), MAX('Answers'[When was the last time you ordered from our pizzeria?])),
+				    "Year", YEAR([Date]),
+				    "MonthInt", MONTH([Date]),
+				    "MonthStr", FORMAT([Date], "MMMM"),
+				    "WeekInt", WEEKNUM([Date]),
+				    "Day", DAY([Date])
+				)
+
+	annotation PBI_Id = 18af9d62e2d34f67bdea120aeb6701fc
+

@@ -1,0 +1,24 @@
+table Categories
+	lineageTag: 481854be-f77a-4120-8c05-5270bc6ef0bb
+
+	column Category
+		dataType: string
+		lineageTag: 598a4f12-9ecd-41e0-899d-4126ced556c4
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Categories = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Categories", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Category", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,165 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 357.4285714285715,
+            "y": 293.07142857142856
+          },
+          "nodeIndex": "Answers",
+          "nodeLineageTag": "b220a080-9bcb-4fee-aa15-7ec0ad89d0cd",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 340.00000000000006,
+            "y": 0
+          },
+          "nodeIndex": "AnswersChoice",
+          "nodeLineageTag": "a5d16876-a86a-48f0-a885-7be19c18661a",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 703.00000000000011,
+            "y": 381.21428571428578
+          },
+          "nodeIndex": "AnswersMatrix",
+          "nodeLineageTag": "543e30b1-9f06-40bf-ac52-2b1e889ffe8c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 724.28571428571433,
+            "y": 0
+          },
+          "nodeIndex": "AnswersRanking",
+          "nodeLineageTag": "a182d2cc-95a8-4f4a-ae2d-cabd917ca2bd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1458.8571428571436,
+            "y": 144.28571428571428
+          },
+          "nodeIndex": "Categories",
+          "nodeLineageTag": "481854be-f77a-4120-8c05-5270bc6ef0bb",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Choices",
+          "nodeLineageTag": "f8bd2f3c-e406-4ea2-8bce-f490593ce37f",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1268.2857142857144,
+            "y": 378.21428571428572
+          },
+          "nodeIndex": "Matrix",
+          "nodeLineageTag": "ab04524c-7ebe-47dc-af6a-2d828b89ce34",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1080.0000000000005,
+            "y": 0
+          },
+          "nodeIndex": "Rankings",
+          "nodeLineageTag": "33ac495b-9703-4567-8e4e-fe98b88a5488",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 986.57142857142844,
+            "y": 215.57142857142847
+          },
+          "nodeIndex": "MatrixAnswers",
+          "nodeLineageTag": "8ad7ae02-704b-4b71-ae57-3dda94fb1230",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 982,
+            "y": 567
+          },
+          "nodeIndex": "MatrixStatements",
+          "nodeLineageTag": "548f473c-795d-4670-89b9-d3d9b84d23b9",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 335.28571428571422
+          },
+          "nodeIndex": "AnswersDate",
+          "nodeLineageTag": "60f1723f-3e76-4a42-85f9-0edfb7a6971e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

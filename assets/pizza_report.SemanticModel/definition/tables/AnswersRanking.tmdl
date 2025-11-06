@@ -1,0 +1,42 @@
+table AnswersRanking
+	lineageTag: a182d2cc-95a8-4f4a-ae2d-cabd917ca2bd
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2085d1f6-81a7-4e2d-bc91-3f03c66ec4a8
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please rank the following aspects of our service from most important to least important. (Option)'
+		dataType: string
+		lineageTag: dc2a3bb2-7313-4afa-b0aa-19305632ac5f
+		summarizeBy: none
+		sourceColumn: Please rank the following aspects of our service from most important to least important. (Option)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please rank the following aspects of our service from most important to least important. (Value)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 507e60fe-e161-42e2-966d-058724ba6218
+		summarizeBy: sum
+		sourceColumn: Please rank the following aspects of our service from most important to least important. (Value)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AnswersRanking = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "AnswersRanking", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"ID", Int64.Type}, {"Please rank the following aspects of our service from most important to least important. (Option)", type text}, {"Please rank the following aspects of our service from most important to least important. (Value)", Int64.Type}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

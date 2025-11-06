@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "pizza_report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2c6cf12b-88e0-453b-8751-d506500bf779"
+  }
+}

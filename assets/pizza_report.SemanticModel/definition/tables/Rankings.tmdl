@@ -1,0 +1,32 @@
+table Rankings
+	lineageTag: 33ac495b-9703-4567-8e4e-fe98b88a5488
+
+	column 'Please rank the following aspects of our service from most important to least important. (Option)'
+		dataType: string
+		lineageTag: 3fa271cf-0eeb-4b8d-9da8-3596d5e2ee95
+		summarizeBy: none
+		sourceColumn: Please rank the following aspects of our service from most important to least important. (Option)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 4d3ba94a-7a14-4ec0-b8eb-b98e58c5d4f8
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Rankings = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_processed.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Rankings", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Please rank the following aspects of our service from most important to least important. (Option)", type text}, {"Category", type text}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
