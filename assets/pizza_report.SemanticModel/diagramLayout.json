@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 1458.8571428571436,
-            "y": 144.28571428571428
+            "x": 1361.7142857142865,
+            "y": 0
           },
           "nodeIndex": "Categories",
           "nodeLineageTag": "481854be-f77a-4120-8c05-5270bc6ef0bb",
@@ -88,7 +88,7 @@
         },
         {
           "location": {
-            "x": 1268.2857142857144,
+            "x": 1224.0000000000002,
             "y": 378.21428571428572
           },
           "nodeIndex": "Matrix",
@@ -150,6 +150,19 @@
             "width": 234
           },
           "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 355.71428571428623,
+            "y": 638.35714285714289
+          },
+          "nodeIndex": "AnswersRaw",
+          "nodeLineageTag": "98652fd6-0a6e-4a6a-8347-9d0406e5489c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

@@ -15,26 +15,27 @@ table AnswersDate
 	column Year
 		formatString: 0
 		lineageTag: c5fddcab-6a1c-469c-8be5-54e062de4196
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Year]
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column MonthInt
 		formatString: 0
 		lineageTag: 92eb9e3f-75b3-46bd-881e-d60b2b856691
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [MonthInt]
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column MonthStr
 		lineageTag: fabd8f8e-0d05-4cd0-a6b5-812cacec8f92
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [MonthStr]
+		sortByColumn: MonthInt
 
 		annotation SummarizationSetBy = Automatic
 

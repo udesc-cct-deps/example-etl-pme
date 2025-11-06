@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Answers","AnswersChoice","Choices","AnswersRanking","Rankings","AnswersMatrix","Matrix","Categories","MatrixStatements","MatrixAnswers"]
+annotation PBI_QueryOrder = ["Answers","AnswersChoice","Choices","AnswersRanking","Rankings","AnswersMatrix","Matrix","Categories","MatrixStatements","MatrixAnswers","AnswersRaw"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -27,6 +27,7 @@ ref table Categories
 ref table AnswersDate
 ref table MatrixStatements
 ref table MatrixAnswers
+ref table AnswersRaw
 
 ref cultureInfo en-US
 

@@ -1,0 +1,129 @@
+table AnswersRaw
+	lineageTag: 98652fd6-0a6e-4a6a-8347-9d0406e5489c
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: a172a3f9-0ee6-47e2-a437-e1d2771e03e1
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How often do you order pizza from our pizzeria?'
+		dataType: string
+		lineageTag: 6a4740be-6d53-4feb-9f98-677a64edf6e3
+		summarizeBy: none
+		sourceColumn: How often do you order pizza from our pizzeria?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Which of the following pizza toppings do you usually choose?'
+		dataType: string
+		lineageTag: 64b4fc84-354c-4500-8ade-35c9a63a1832
+		summarizeBy: none
+		sourceColumn: Which of the following pizza toppings do you usually choose?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'What did you like the most or the least about your last pizza order?'
+		dataType: string
+		lineageTag: 950ea294-c4c7-493a-bddf-d42f0e5011bf
+		summarizeBy: none
+		sourceColumn: What did you like the most or the least about your last pizza order?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Please describe your most recent experience ordering from our pizzeria.'
+		dataType: string
+		lineageTag: c1d3d00d-97b8-48d3-8ad5-e35cd1022e2b
+		summarizeBy: none
+		sourceColumn: Please describe your most recent experience ordering from our pizzeria.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How would you rate the quality of our pizza?'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7750e825-0b3b-4d18-b993-c1a9677f983c
+		summarizeBy: sum
+		sourceColumn: How would you rate the quality of our pizza?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'When was the last time you ordered from our pizzeria?'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f6bfe39d-eb35-4556-82eb-bcfa7ad518fa
+		summarizeBy: none
+		sourceColumn: When was the last time you ordered from our pizzeria?
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Please rank the following aspects of our service from most important to least important.'
+		dataType: string
+		lineageTag: 6be15841-0f52-41fc-9280-4499b22195ec
+		summarizeBy: none
+		sourceColumn: Please rank the following aspects of our service from most important to least important.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pizza taste'
+		dataType: string
+		lineageTag: 58332ab1-28db-43bb-a8f8-78b7803598fb
+		summarizeBy: none
+		sourceColumn: Pizza taste
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery speed'
+		dataType: string
+		lineageTag: 44266924-06de-46da-b030-2021fbe8f5c4
+		summarizeBy: none
+		sourceColumn: Delivery speed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer service'
+		dataType: string
+		lineageTag: e624faba-c690-4a1d-af5c-f7d73e758663
+		summarizeBy: none
+		sourceColumn: Customer service
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value for money'
+		dataType: string
+		lineageTag: b1601479-8ab6-4eb4-b869-3cc53b4093d2
+		summarizeBy: none
+		sourceColumn: Value for money
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'How likely are you to recommend our pizzeria to a friend or colleague?'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bf948d4-1346-48be-9a22-2dfb9bb990b4
+		summarizeBy: sum
+		sourceColumn: How likely are you to recommend our pizzeria to a friend or colleague?
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AnswersRaw = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://github.com/udesc-cct-deps/example-etl-pme/raw/refs/heads/main/assets/pizza_raw.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ID", Int64.Type}, {"Start time", type datetime}, {"Completion time", type datetime}, {"Email", type text}, {"Name", type any}, {"Last modified time", type any}, {"How often do you order pizza from our pizzeria?", type text}, {"Which of the following pizza toppings do you usually choose?", type text}, {"What did you like the most or the least about your last pizza order?", type text}, {"Please describe your most recent experience ordering from our pizzeria.", type text}, {"How would you rate the quality of our pizza?", Int64.Type}, {"When was the last time you ordered from our pizzeria?", type date}, {"Please rank the following aspects of our service from most important to least important.", type text}, {"Pizza taste", type text}, {"Delivery speed", type text}, {"Customer service", type text}, {"Value for money", type text}, {"How likely are you to recommend our pizzeria to a friend or colleague?", Int64.Type}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"ID", "How often do you order pizza from our pizzeria?", "Which of the following pizza toppings do you usually choose?", "What did you like the most or the least about your last pizza order?", "Please describe your most recent experience ordering from our pizzeria.", "How would you rate the quality of our pizza?", "When was the last time you ordered from our pizzeria?", "Please rank the following aspects of our service from most important to least important.", "Pizza taste", "Delivery speed", "Customer service", "Value for money", "How likely are you to recommend our pizzeria to a friend or colleague?"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
