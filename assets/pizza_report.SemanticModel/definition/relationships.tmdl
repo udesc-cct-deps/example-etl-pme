@@ -35,6 +35,7 @@ relationship a724ec9f-06e2-6764-578c-99334e81a826
 	toColumn: MatrixAnswers.Answer
 
 relationship 5294ccc6-90e6-e2eb-38eb-00bdb690e558
+	crossFilteringBehavior: bothDirections
 	fromColumn: Matrix.Statement
 	toColumn: MatrixStatements.Statement
 

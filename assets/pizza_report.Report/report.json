@@ -20,12 +20,105 @@
   "sections": [
     {
       "config": "{}",
-      "displayName": "Page 1",
+      "displayName": "Matrix Processed",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "2cdc3117d883dd377a71",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"8fb5b4f60b576d564c65\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":719.4349142280525,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(AnswersMatrix.ID)\"}],\"Category\":[{\"queryRef\":\"MatrixAnswers.Answer\",\"active\":true}],\"Rows\":[{\"queryRef\":\"Categories.Category\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AnswersMatrix\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"MatrixAnswers\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Categories\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersMatrix.ID)\",\"NativeReferenceName\":\"ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Answer\"},\"Name\":\"MatrixAnswers.Answer\",\"NativeReferenceName\":\"Answer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Category\"},\"Name\":\"Categories.Category\",\"NativeReferenceName\":\"Category\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.43,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Choices Processed",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "3fe74cc060e7cbf54a04",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"de35da995c192ab424c3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.7556080283352,\"y\":0,\"z\":1,\"width\":639.2443919716646,\"height\":719.3388429752066,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Choices.Flavor\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(AnswersChoice.ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Choices\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"AnswersChoice\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Flavor\"},\"Name\":\"Choices.Flavor\",\"NativeReferenceName\":\"Flavor\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersChoice.ID)\",\"NativeReferenceName\":\"Count of ID\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.34,
+          "width": 639.24,
+          "x": 640.76,
+          "y": 0.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"e1c95b8ea53b27db5541\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":640.7556080283352,\"height\":719.3388429752066,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"AnswersChoice.Which of the following pizza toppings do you usually choose?\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(AnswersChoice.ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AnswersChoice\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Which of the following pizza toppings do you usually choose?\"},\"Name\":\"AnswersChoice.Which of the following pizza toppings do you usually choose?\",\"NativeReferenceName\":\"Count of Which of the following pizza toppings do you usually choose?\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersChoice.ID)\",\"NativeReferenceName\":\"ID\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.34,
+          "width": 640.76,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Nps",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "4262dd9b0753c866a966",
+      "ordinal": 4,
       "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Matrix Raw",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "6663803046942e6c7fd4",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"bc226ff8ef2ccda9d065\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":719.4349142280525,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"AnswersRaw.Customer service\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(AnswersRaw.Pizza taste)\"},{\"queryRef\":\"CountNonNull(AnswersRaw.Delivery speed)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AnswersRaw\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Delivery speed\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersRaw.Delivery speed)\",\"NativeReferenceName\":\"Count of Delivery speed\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Customer service\"},\"Name\":\"AnswersRaw.Customer service\",\"NativeReferenceName\":\"Count of Customer service\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Pizza taste\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersRaw.Pizza taste)\",\"NativeReferenceName\":\"Count of Pizza taste\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Pizza taste\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.43,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Choices Raw",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "9cbd6f50c964e8542b56",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2748c9481c69bac81d89\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":719.3388429752066,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(AnswersRaw.ID)\"}],\"Category\":[{\"queryRef\":\"AnswersRaw.Which of the following pizza toppings do you usually choose?\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AnswersRaw\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5},\"Name\":\"CountNonNull(AnswersRaw.ID)\",\"NativeReferenceName\":\"ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Which of the following pizza toppings do you usually choose?\"},\"Name\":\"AnswersRaw.Which of the following pizza toppings do you usually choose?\",\"NativeReferenceName\":\"Count of Which of the following pizza toppings do you usually choose?\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.34,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
